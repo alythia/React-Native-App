@@ -22,6 +22,7 @@ export class Scanner extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
+          <View style={this.styles.header}>Scan the Code!</View>
           <BarCodeScanner
             onBarCodeRead={this._handleBarCodeRead}
             style={StyleSheet.absoluteFill}
@@ -30,6 +31,12 @@ export class Scanner extends Component {
       );
     }
   }
+
+  styles = {
+    header: {
+      position: "reletive"
+    }
+  };
 
   _handleBarCodeRead = ({ type, data }) => {
     console.log(`This is your info: ${data}`);

@@ -34,7 +34,7 @@ export class Scanner extends Component {
 
   styles = {
     header: {
-      position: "reletive"
+      //position: "reletive"
     }
   };
 

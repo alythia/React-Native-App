@@ -1,49 +1,49 @@
-import React, {Component} from 'react'
-import {View} from 'react-native'
+import React, { Component } from "react";
+import { View } from "react-native";
 import {
   FormLabel,
   FormInput,
   FormValidationMessage,
   Button
-} from 'react-native-elements'
+} from "react-native-elements";
 import {
   setUserEmail,
   setUserPin,
   retrieveUserEmail,
   retrieveAndValidateUserPin
-} from './utils/secure-store'
+} from "../utils/secure-store";
 
 export class AuthForm extends Component {
   state = {
     logInView: true,
-    email: '',
-    pin: ''
-  }
+    email: "",
+    pin: ""
+  };
 
   componentDidMount = () => {
     // SET STATE BASED ON WHETHER LOG IN OR SIGN UP VIEW
-  }
+  };
 
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value})
-  }
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   handleSubmit = () => {
     if (!this.state.logInView) {
-      setUserEmail(this.state.email)
-      setUserPin(this.state.pin)
+      setUserEmail(this.state.email);
+      setUserPin(this.state.pin);
     } else {
-      const userEmail = retrieveUserEmail()
-      const successfulSignIn = retrieveAndValidateUserPin()
-      console.log(`User email: ${userEmail}`, `Success? ${successfulSignIn}`)
+      const userEmail = retrieveUserEmail();
+      const successfulSignIn = retrieveAndValidateUserPin();
+      console.log(`User email: ${userEmail}`, `Success? ${successfulSignIn}`);
     }
-  }
+  };
 
   render() {
     return (
       <View onSubmit={this.handleSubmit}>
         <View>
-          <Text h2>{this.state.logInView ? 'LOG IN' : 'SIGN UP'}</Text>
+          <Text h2>{this.state.logInView ? "LOG IN" : "SIGN UP"}</Text>
         </View>
         <View>
           <FormLabel>Email</FormLabel>
@@ -53,7 +53,7 @@ export class AuthForm extends Component {
             onChangeText={this.handleChange}
           />
           <FormValidationMessage>
-            {'This field is required'}
+            {"This field is required"}
           </FormValidationMessage>
         </View>
         <View>
@@ -64,14 +64,14 @@ export class AuthForm extends Component {
             onChangeText={this.handleChange}
           />
           <FormValidationMessage>
-            {'This field is required'}
+            {"This field is required"}
           </FormValidationMessage>
         </View>
         <View>
           <Button
             large
             raised
-            icon={{name: 'user-check', type: 'feather'}}
+            icon={{ name: "user-check", type: "feather" }}
             title="LOG IN"
           />
         </View>
@@ -80,17 +80,17 @@ export class AuthForm extends Component {
             <Button
               small
               raised
-              icon={{name: 'add-user', type: 'entypo'}}
+              icon={{ name: "add-user", type: "entypo" }}
               title="OR CREATE AN ACCOUNT"
-              onClick={this.setState({logInView: false})}
+              onClick={this.setState({ logInView: false })}
             />
           </View>
         ) : (
           <View />
         )}
       </View>
-    )
+    );
   }
 }
 
-export default AuthForm
+export default AuthForm;

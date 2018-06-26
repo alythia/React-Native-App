@@ -1,13 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { navigate } from "react-navigation";
-
-import {
-  setUserEmail,
-  setUserPin,
-  retrieveOrCreateUserEmail,
-  retrieveAndValidateUserPin
-} from "../utils/secure-store";
 
 export default class Loading extends React.Component {
   state = {

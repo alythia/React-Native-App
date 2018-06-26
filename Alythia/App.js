@@ -1,11 +1,5 @@
 import React from 'react'
 import {StyleSheet, Text, View, Image} from 'react-native'
-import {
-  setUserEmail,
-  setUserPin,
-  retrieveOrCreateUserEmail,
-  retrieveAndValidateUserPin
-} from './utils/secure-store'
 
 export default class App extends React.Component {
   componentDidMount = () => {

@@ -18,7 +18,7 @@ export const setUserEmail = emailValue => {
 }
 
 // Retrieves email if it exists, sets email if it does not
-export const retrieveOrCreateUserEmail = inputEmailValue => {
+export const retrieveUserEmail = inputEmailValue => {
   const userStoredEmail = store
     .getItemAsync('email')
     .catch(error => console.log(`Email fetch failed (${error})`))
@@ -26,8 +26,7 @@ export const retrieveOrCreateUserEmail = inputEmailValue => {
   if (userStoredEmail === inputEmailValue) {
     return userStoredEmail
   } else {
-    setUserEmail(inputEmailValue)
-    console.log(`Account created for ${inputEmailValue}`)
+    console.log(`Email address does not match account: ${inputEmailValue}`)
   }
 }
 

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
+import {StyleSheet, Text, View, Image} from 'react-native'
 import Loading from "./components/loading";
 import Scanner from "./components/scanner";
-
 import { createStackNavigator } from "react-navigation";
 
 const App = createStackNavigator(

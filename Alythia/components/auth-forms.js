@@ -15,7 +15,7 @@ import {
 
 export class AuthForm extends Component {
   state = {
-    signUpView: false,
+    logInView: true,
     email: '',
     pin: ''
   }
@@ -29,7 +29,7 @@ export class AuthForm extends Component {
   }
 
   handleSubmit = () => {
-    if (this.state.signUpView) {
+    if (!this.state.logInView) {
       setUserEmail(this.state.email)
       setUserPin(this.state.pin)
     } else {
@@ -43,7 +43,7 @@ export class AuthForm extends Component {
     return (
       <View onSubmit={this.handleSubmit}>
         <View>
-          <Text h1>{this.state.signUpView ? 'LOG IN' : 'SIGN UP'}</Text>
+          <Text h2>{this.state.logInView ? 'LOG IN' : 'SIGN UP'}</Text>
         </View>
         <View>
           <FormLabel>Email</FormLabel>
@@ -72,17 +72,17 @@ export class AuthForm extends Component {
             large
             raised
             icon={{name: 'user-check', type: 'feather'}}
-            title="SUBMIT"
+            title="LOG IN"
           />
         </View>
-        {this.state.signUpView ? (
+        {!this.state.logInView ? (
           <View>
             <Button
               small
               raised
-              icon={{name: 'ios-backspace', type: 'ionicon'}}
-              title="BACK TO LOG IN"
-              onClick={this.setState({signUpView: false})}
+              icon={{name: 'add-user', type: 'entypo'}}
+              title="OR CREATE AN ACCOUNT"
+              onClick={this.setState({logInView: false})}
             />
           </View>
         ) : (

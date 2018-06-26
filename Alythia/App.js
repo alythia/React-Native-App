@@ -7,9 +7,9 @@ import { createStackNavigator } from "react-navigation";
 
 const App = createStackNavigator(
   {
-    Loading: { screen: Loading },
-    Scanner: { screen: Scanner },
-    Login: { screen: Login }
+    Loading: {screen: Loading},
+    Login: {screen: Login},
+    Scanner: {screen: Scanner}
   },
   {
     navigationOptions: {

@@ -4,28 +4,23 @@ import {
   FormLabel,
   FormInput,
   FormValidationMessage,
-  Button
-} from "react-native-elements";
+  Button,
+  Text
+} from 'react-native-elements'
+
 import {
   setUserEmail,
   setUserPin,
   retrieveUserEmail,
   retrieveAndValidateUserPin
-} from "../utils/secure-store";
+} from '../utils/secure-store'
+
 
 export class AuthForm extends Component {
   state = {
     logInView: true,
     email: "",
     pin: ""
-  };
-
-  componentDidMount = () => {
-    // SET STATE BASED ON WHETHER LOG IN OR SIGN UP VIEW
-  };
-
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = () => {
@@ -41,53 +36,71 @@ export class AuthForm extends Component {
 
   render() {
     return (
-      <View onSubmit={this.handleSubmit}>
+      <View
+        onSubmitEditing={this.handleSubmit}
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center'
+        }}
+      >
         <View>
-          <Text h2>{this.state.logInView ? "LOG IN" : "SIGN UP"}</Text>
+          <Text
+            h3
+            style={{textAlign: 'center', color: '#061A40', fontWeight: 'bold'}}
+          >
+            {this.state.logInView ? 'LOG IN' : 'SIGN UP'}
+          </Text>
+
         </View>
+        <View style={{height: 20}} />
         <View>
-          <FormLabel>Email</FormLabel>
+          <FormLabel style={{marginTop: '15px'}}>Email</FormLabel>
           <FormInput
-            name="email"
+            placeholder="Please enter your email..."
             value={this.state.email}
-            onChangeText={this.handleChange}
+            onChangeText={text => this.setState({email: text})}
           />
           <FormValidationMessage>
             {"This field is required"}
           </FormValidationMessage>
         </View>
+        <View style={{height: 20}} />
         <View>
-          <FormLabel>6-Digit Pin</FormLabel>
+          <FormLabel style={{marginTop: '15px'}}>6-Digit Pin</FormLabel>
           <FormInput
-            name="pin"
-            value={this.state.email}
-            onChangeText={this.handleChange}
+            placeholder="Please select a secure 6-digit pin..."
+            value={this.state.pin}
+            onChangeText={text => this.setState({pin: text})}
           />
           <FormValidationMessage>
             {"This field is required"}
           </FormValidationMessage>
         </View>
+        <View style={{height: 40}} />
         <View>
           <Button
-            large
             raised
-            icon={{ name: "user-check", type: "feather" }}
+            icon={{name: 'check'}}
+            backgroundColor="#061A40"
             title="LOG IN"
           />
         </View>
-        {!this.state.logInView ? (
+        <View style={{height: 10}} />
+        {this.state.logInView ? (
           <View>
             <Button
-              small
               raised
-              icon={{ name: "add-user", type: "entypo" }}
+              backgroundColor="#006DB6"
+              icon={{name: 'add-user', type: 'entypo'}}
               title="OR CREATE AN ACCOUNT"
-              onClick={this.setState({ logInView: false })}
+              onClick={() => this.setState({logInView: false})}
             />
           </View>
         ) : (
           <View />
         )}
+        <View style={{height: 80}} />
       </View>
     );
   }

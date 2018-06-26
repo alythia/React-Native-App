@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {View} from 'react-native'
+import React, { Component } from "react";
+import { View } from "react-native";
 import {
   FormLabel,
   FormInput,
@@ -7,6 +7,7 @@ import {
   Button,
   Text
 } from 'react-native-elements'
+
 import {
   setUserEmail,
   setUserPin,
@@ -14,23 +15,24 @@ import {
   retrieveAndValidateUserPin
 } from '../utils/secure-store'
 
+
 export class AuthForm extends Component {
   state = {
     logInView: true,
-    email: '',
-    pin: ''
-  }
+    email: "",
+    pin: ""
+  };
 
   handleSubmit = () => {
     if (!this.state.logInView) {
-      setUserEmail(this.state.email)
-      setUserPin(this.state.pin)
+      setUserEmail(this.state.email);
+      setUserPin(this.state.pin);
     } else {
-      const userEmail = retrieveUserEmail()
-      const successfulSignIn = retrieveAndValidateUserPin()
-      console.log(`User email: ${userEmail}`, `Success? ${successfulSignIn}`)
+      const userEmail = retrieveUserEmail();
+      const successfulSignIn = retrieveAndValidateUserPin();
+      console.log(`User email: ${userEmail}`, `Success? ${successfulSignIn}`);
     }
-  }
+  };
 
   render() {
     return (
@@ -49,6 +51,7 @@ export class AuthForm extends Component {
           >
             {this.state.logInView ? 'LOG IN' : 'SIGN UP'}
           </Text>
+
         </View>
         <View style={{height: 20}} />
         <View>
@@ -59,7 +62,7 @@ export class AuthForm extends Component {
             onChangeText={text => this.setState({email: text})}
           />
           <FormValidationMessage>
-            {'This field is required'}
+            {"This field is required"}
           </FormValidationMessage>
         </View>
         <View style={{height: 20}} />
@@ -71,7 +74,7 @@ export class AuthForm extends Component {
             onChangeText={text => this.setState({pin: text})}
           />
           <FormValidationMessage>
-            {'This field is required'}
+            {"This field is required"}
           </FormValidationMessage>
         </View>
         <View style={{height: 40}} />
@@ -99,8 +102,8 @@ export class AuthForm extends Component {
         )}
         <View style={{height: 80}} />
       </View>
-    )
+    );
   }
 }
 
-export default AuthForm
+export default AuthForm;

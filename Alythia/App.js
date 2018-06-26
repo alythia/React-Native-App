@@ -1,46 +1,52 @@
-import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React from 'react'
+import {StyleSheet, Text, View, Image} from 'react-native'
+import {
+  setUserEmail,
+  setUserPin,
+  retrieveOrCreateUserEmail,
+  retrieveAndValidateUserPin
+} from './utils/secure-store'
 
 export default class App extends React.Component {
   componentDidMount = () => {
-    setTimeout(() => this.handleBiometrics(), 3000);
-  };
+    setTimeout(() => this.handleBiometrics(), 3000)
+  }
 
   handleBiometrics = async () => {
     try {
-      const res = await Expo.Fingerprint.isEnrolledAsync();
+      const res = await Expo.Fingerprint.isEnrolledAsync()
       if (res === true) {
-        const fingerPrint = await Expo.Fingerprint.authenticateAsync();
-        console.log(fingerPrint);
+        const fingerPrint = await Expo.Fingerprint.authenticateAsync()
+        console.log(fingerPrint)
         // if (fingerPrint.error === 'user_fallback') {
         //   // this is where we need to ask user for PIN or Password
         // }
       }
     } catch (e) {
-      console.log("error is: ", e);
+      console.log('error is: ', e)
     }
-  };
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.padding} />
         <Image
-          source={require("./public/Logo-funky.png")}
+          source={require('./public/Logo-funky.png')}
           style={styles.image}
         />
         <View style={styles.padding} />
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#061A40",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#061A40',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   image: {
     flex: 1,
@@ -49,4 +55,4 @@ const styles = StyleSheet.create({
   padding: {
     flex: 4
   }
-});
+})

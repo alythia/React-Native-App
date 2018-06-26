@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F280C93720E19D6C004A6CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280C93620E19D6C004A6CBC /* AppDelegate.swift */; };
+		F280C93920E19D6C004A6CBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280C93820E19D6C004A6CBC /* ViewController.swift */; };
+		F280C93C20E19D6C004A6CBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F280C93A20E19D6C004A6CBC /* Main.storyboard */; };
+		F280C93E20E19D72004A6CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F280C93D20E19D72004A6CBC /* Assets.xcassets */; };
+		F280C94120E19D72004A6CBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F280C93F20E19D72004A6CBC /* LaunchScreen.storyboard */; };
+		F280C94C20E19D72004A6CBC /* AlythiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280C94B20E19D72004A6CBC /* AlythiaTests.swift */; };
+		F280C95720E19D72004A6CBC /* AlythiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280C95620E19D72004A6CBC /* AlythiaUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F280C94820E19D72004A6CBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F280C92B20E19D6B004A6CBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F280C93220E19D6C004A6CBC;
+			remoteInfo = Alythia;
+		};
+		F280C95320E19D72004A6CBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F280C92B20E19D6B004A6CBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F280C93220E19D6C004A6CBC;
+			remoteInfo = Alythia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F280C93320E19D6C004A6CBC /* Alythia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alythia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F280C93620E19D6C004A6CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F280C93820E19D6C004A6CBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F280C93B20E19D6C004A6CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F280C93D20E19D72004A6CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F280C94020E19D72004A6CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F280C94220E19D72004A6CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F280C94720E19D72004A6CBC /* AlythiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlythiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F280C94B20E19D72004A6CBC /* AlythiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlythiaTests.swift; sourceTree = "<group>"; };
+		F280C94D20E19D72004A6CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F280C95220E19D72004A6CBC /* AlythiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlythiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F280C95620E19D72004A6CBC /* AlythiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlythiaUITests.swift; sourceTree = "<group>"; };
+		F280C95820E19D72004A6CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F280C93020E19D6C004A6CBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F280C94420E19D72004A6CBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F280C94F20E19D72004A6CBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F280C92A20E19D6B004A6CBC = {
+			isa = PBXGroup;
+			children = (
+				F280C93520E19D6C004A6CBC /* Alythia */,
+				F280C94A20E19D72004A6CBC /* AlythiaTests */,
+				F280C95520E19D72004A6CBC /* AlythiaUITests */,
+				F280C93420E19D6C004A6CBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F280C93420E19D6C004A6CBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F280C93320E19D6C004A6CBC /* Alythia.app */,
+				F280C94720E19D72004A6CBC /* AlythiaTests.xctest */,
+				F280C95220E19D72004A6CBC /* AlythiaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F280C93520E19D6C004A6CBC /* Alythia */ = {
+			isa = PBXGroup;
+			children = (
+				F280C93620E19D6C004A6CBC /* AppDelegate.swift */,
+				F280C93820E19D6C004A6CBC /* ViewController.swift */,
+				F280C93A20E19D6C004A6CBC /* Main.storyboard */,
+				F280C93D20E19D72004A6CBC /* Assets.xcassets */,
+				F280C93F20E19D72004A6CBC /* LaunchScreen.storyboard */,
+				F280C94220E19D72004A6CBC /* Info.plist */,
+			);
+			path = Alythia;
+			sourceTree = "<group>";
+		};
+		F280C94A20E19D72004A6CBC /* AlythiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F280C94B20E19D72004A6CBC /* AlythiaTests.swift */,
+				F280C94D20E19D72004A6CBC /* Info.plist */,
+			);
+			path = AlythiaTests;
+			sourceTree = "<group>";
+		};
+		F280C95520E19D72004A6CBC /* AlythiaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F280C95620E19D72004A6CBC /* AlythiaUITests.swift */,
+				F280C95820E19D72004A6CBC /* Info.plist */,
+			);
+			path = AlythiaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F280C93220E19D6C004A6CBC /* Alythia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F280C95B20E19D72004A6CBC /* Build configuration list for PBXNativeTarget "Alythia" */;
+			buildPhases = (
+				F280C92F20E19D6C004A6CBC /* Sources */,
+				F280C93020E19D6C004A6CBC /* Frameworks */,
+				F280C93120E19D6C004A6CBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alythia;
+			productName = Alythia;
+			productReference = F280C93320E19D6C004A6CBC /* Alythia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F280C94620E19D72004A6CBC /* AlythiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F280C95E20E19D72004A6CBC /* Build configuration list for PBXNativeTarget "AlythiaTests" */;
+			buildPhases = (
+				F280C94320E19D72004A6CBC /* Sources */,
+				F280C94420E19D72004A6CBC /* Frameworks */,
+				F280C94520E19D72004A6CBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F280C94920E19D72004A6CBC /* PBXTargetDependency */,
+			);
+			name = AlythiaTests;
+			productName = AlythiaTests;
+			productReference = F280C94720E19D72004A6CBC /* AlythiaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F280C95120E19D72004A6CBC /* AlythiaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F280C96120E19D72004A6CBC /* Build configuration list for PBXNativeTarget "AlythiaUITests" */;
+			buildPhases = (
+				F280C94E20E19D72004A6CBC /* Sources */,
+				F280C94F20E19D72004A6CBC /* Frameworks */,
+				F280C95020E19D72004A6CBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F280C95420E19D72004A6CBC /* PBXTargetDependency */,
+			);
+			name = AlythiaUITests;
+			productName = AlythiaUITests;
+			productReference = F280C95220E19D72004A6CBC /* AlythiaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F280C92B20E19D6B004A6CBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Matt Ferguson";
+				TargetAttributes = {
+					F280C93220E19D6C004A6CBC = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					F280C94620E19D72004A6CBC = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = F280C93220E19D6C004A6CBC;
+					};
+					F280C95120E19D72004A6CBC = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = F280C93220E19D6C004A6CBC;
+					};
+				};
+			};
+			buildConfigurationList = F280C92E20E19D6B004A6CBC /* Build configuration list for PBXProject "Alythia" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F280C92A20E19D6B004A6CBC;
+			productRefGroup = F280C93420E19D6C004A6CBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F280C93220E19D6C004A6CBC /* Alythia */,
+				F280C94620E19D72004A6CBC /* AlythiaTests */,
+				F280C95120E19D72004A6CBC /* AlythiaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F280C93120E19D6C004A6CBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F280C94120E19D72004A6CBC /* LaunchScreen.storyboard in Resources */,
+				F280C93E20E19D72004A6CBC /* Assets.xcassets in Resources */,
+				F280C93C20E19D6C004A6CBC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F280C94520E19D72004A6CBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F280C95020E19D72004A6CBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F280C92F20E19D6C004A6CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F280C93920E19D6C004A6CBC /* ViewController.swift in Sources */,
+				F280C93720E19D6C004A6CBC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F280C94320E19D72004A6CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F280C94C20E19D72004A6CBC /* AlythiaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F280C94E20E19D72004A6CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F280C95720E19D72004A6CBC /* AlythiaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F280C94920E19D72004A6CBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F280C93220E19D6C004A6CBC /* Alythia */;
+			targetProxy = F280C94820E19D72004A6CBC /* PBXContainerItemProxy */;
+		};
+		F280C95420E19D72004A6CBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F280C93220E19D6C004A6CBC /* Alythia */;
+			targetProxy = F280C95320E19D72004A6CBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F280C93A20E19D6C004A6CBC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F280C93B20E19D6C004A6CBC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F280C93F20E19D72004A6CBC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F280C94020E19D72004A6CBC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F280C95920E19D72004A6CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F280C95A20E19D72004A6CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F280C95C20E19D72004A6CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Alythia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Alythia.Alythia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F280C95D20E19D72004A6CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Alythia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Alythia.Alythia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F280C95F20E19D72004A6CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AlythiaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Alythia.AlythiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alythia.app/Alythia";
+			};
+			name = Debug;
+		};
+		F280C96020E19D72004A6CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AlythiaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Alythia.AlythiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alythia.app/Alythia";
+			};
+			name = Release;
+		};
+		F280C96220E19D72004A6CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AlythiaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Alythia.AlythiaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Alythia;
+			};
+			name = Debug;
+		};
+		F280C96320E19D72004A6CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AlythiaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Alythia.AlythiaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Alythia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F280C92E20E19D6B004A6CBC /* Build configuration list for PBXProject "Alythia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F280C95920E19D72004A6CBC /* Debug */,
+				F280C95A20E19D72004A6CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F280C95B20E19D72004A6CBC /* Build configuration list for PBXNativeTarget "Alythia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F280C95C20E19D72004A6CBC /* Debug */,
+				F280C95D20E19D72004A6CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F280C95E20E19D72004A6CBC /* Build configuration list for PBXNativeTarget "AlythiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F280C95F20E19D72004A6CBC /* Debug */,
+				F280C96020E19D72004A6CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F280C96120E19D72004A6CBC /* Build configuration list for PBXNativeTarget "AlythiaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F280C96220E19D72004A6CBC /* Debug */,
+				F280C96320E19D72004A6CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F280C92B20E19D6B004A6CBC /* Project object */;
+}

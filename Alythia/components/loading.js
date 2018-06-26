@@ -1,33 +1,35 @@
-import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React from 'react'
+import {StyleSheet, Text, View, Image} from 'react-native'
 
 export default class Loading extends React.Component {
   componentDidMount = () => {
-    setTimeout(() => this.handleSignIn(), 3000);
-  };
+    setTimeout(() => this.handleSignIn(), 2000)
+  }
 
-  handleSignIn = () => {};
+  handleSignIn = () => {
+    this.props.navigation.navigate('Login')
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.padding} />
         <Image
-          source={require("../public/Logo-funky.png")}
+          source={require('../public/Logo-funky.png')}
           style={styles.image}
         />
         <View style={styles.padding} />
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#061A40",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#061A40',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   image: {
     flex: 1,
@@ -36,4 +38,4 @@ const styles = StyleSheet.create({
   padding: {
     flex: 4
   }
-});
+})

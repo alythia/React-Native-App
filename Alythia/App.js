@@ -1,10 +1,10 @@
-import React from 'react'
-import Loading from './components/loading'
-import Scanner from './components/scanner'
-import Login from './components/login'
-import Signup from './components/signup'
-import AccountCreated from './components/account-created'
-import { createStackNavigator } from 'react-navigation'
+import React from "react";
+import Loading from "./components/loading";
+import Scanner from "./components/scanner";
+import Login from "./components/login";
+import Signup from "./components/signup";
+import AccountCreated from "./components/account-created";
+import { createStackNavigator } from "react-navigation";
 
 const App = createStackNavigator(
   {
@@ -12,17 +12,17 @@ const App = createStackNavigator(
     Login: { screen: Login },
     Signup: { screen: Signup },
     AccountCreated: { screen: AccountCreated },
-    Scanner: { screen: Scanner },
+    Scanner: { screen: Scanner }
   },
   {
     navigationOptions: {
       headerLeft: null,
       headerStyle: {
-        backgroundColor: '#cccccc',
-        height: 5,
-      },
-    },
+        backgroundColor: "#cccccc",
+        height: 5
+      }
+    }
   }
-)
+);
 
-export default App
+export default App;

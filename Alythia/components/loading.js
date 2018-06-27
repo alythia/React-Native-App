@@ -1,35 +1,52 @@
-import React from 'react'
-import {StyleSheet, Text, View, Image} from 'react-native'
+import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+
+import Expo from "expo";
+import handleBiometrics from "./biometrics";
+
+// Creates encrypted SecureStore for mobile user
+const store = Expo.SecureStore;
 
 export default class Loading extends React.Component {
-  componentDidMount = () => {
-    setTimeout(() => this.handleSignIn(), 2000)
-  }
+  state = {
+    email: ""
+  };
+
+  componentDidMount = async () => {
+    const userStoredEmail = await store.getItemAsync("email");
+    this.setState({ email: userStoredEmail });
+
+    setTimeout(() => this.handleSignIn(), 2000);
+  };
 
   handleSignIn = () => {
-    this.props.navigation.navigate('Login')
-  }
+    if (this.state.email) {
+      handleBiometrics(this.props.navigation.navigate);
+    } else {
+      this.props.navigation.navigate("Login");
+    }
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.padding} />
         <Image
-          source={require('../public/Logo-funky.png')}
+          source={require("../public/Logo-funky.png")}
           style={styles.image}
         />
         <View style={styles.padding} />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#061A40',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: "#061A40",
+    alignItems: "center",
+    justifyContent: "center"
   },
   image: {
     flex: 1,
@@ -38,4 +55,4 @@ const styles = StyleSheet.create({
   padding: {
     flex: 4
   }
-})
+});

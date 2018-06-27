@@ -73,7 +73,6 @@ export const setUserUUID = () => {
       // })
     )
     .then(() => {
-      createUser(userUUID)
       console.log('UUID storage successfull')
     })
     .catch(error => {

@@ -19,10 +19,13 @@ export class Login extends Component {
     pin: ""
   };
 
-  handleSubmit = () => {
-    const userEmail = retrieveUserEmail();
-    const successfulSignIn = retrieveAndValidateUserPin();
+  handleSubmit = async () => {
+    const userEmail = await retrieveUserEmail(this.state.email);
+    const successfulSignIn = await retrieveAndValidateUserPin(this.state.pin);
     console.log(`User email: ${userEmail}`, `Success? ${successfulSignIn}`);
+    if (successfulSignIn) {
+      this.props.navigation.navigate("Scanner");
+    }
   };
 
   render() {

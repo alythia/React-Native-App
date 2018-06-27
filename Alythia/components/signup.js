@@ -17,12 +17,12 @@ export class Signup extends Component {
   };
 
   handleSubmit = () => {
+    console.log("New User: ", this.state);
     setUserEmail(this.state.email);
     setUserPin(this.state.pin);
   };
 
   render() {
-    console.log(this.state.pin);
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View

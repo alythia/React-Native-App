@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { Text } from 'react-native-elements'
 
-export default class AccountCreated extends Component {
+export default class AuthorizingView extends Component {
   render() {
     return (
       <View style={styles.container}>

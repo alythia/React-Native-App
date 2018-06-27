@@ -24,7 +24,7 @@ class Login extends Component {
     const successfulSignIn = await retrieveAndValidateUserPin(this.state.pin)
     console.log(`User email: ${userEmail}`, `Success? ${successfulSignIn}`)
     if (successfulSignIn) {
-      this.props.navigation.navigate('Scanner')
+      this.props.navigation.navigate('Scanner', { email: userEmail })
     }
   }
 

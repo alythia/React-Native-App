@@ -1,28 +1,34 @@
-import axios from "axios";
+import axios from 'axios'
 
-const URL = "http://172.16.23.149:8080/api/test-qr";
+const rootDomain = 'http://localhost:8080'
+// const rootDomain = 'http://172.16.23.149:8080'
 
-const transferData = async (QRCodeData, userEmail, userIdentifier) => {
+export const createUser = async (userEmail, userUUID) => {
+  try {
+    const payload = {
+      email: userEmail,
+      UUID: userUUID,
+    }
+    console.log('HERE IS POST PAYLOAD: ', payload)
+    const { data } = await axios.post(rootDomain + '/api/users', payload)
+    console.log('User added res: ', data)
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const transferData = async (QRCodeData, userEmail, userUUID) => {
   try {
     const payload = {
       data: QRCodeData,
       email: userEmail,
-      identifier: userIdentifier
-    };
-    const { data } = await axios.post(URL, payload);
-    console.log("transferData Response: ", data);
-    return data;
+      UUID: userUUID,
+    }
+    const { data } = await axios.post(rootDomain + '/api/test-qr', payload)
+    console.log('transferData res: ', data)
+    return data
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
-};
-
-export const initiateDataTransfer = async (QRCodeData, userEmail) => {
-  try {
-    const { data } = await axios.get(URL);
-    console.log("Data transfer initiated, token received: ", data);
-    transferData(QRCodeData, userEmail, data);
-  } catch (error) {
-    console.error(error);
-  }
-};
+}

@@ -7,8 +7,13 @@ import {
   Button,
   Text,
 } from 'react-native-elements'
-
-import { setUserEmail, setUserPin } from '../utils/secure-store'
+import {
+  store,
+  setUserEmail,
+  setUserPin,
+  setUserUUID,
+} from '../utils/secure-store'
+import { createUser } from '../utils/routes'
 
 class Signup extends Component {
   state = {
@@ -16,10 +21,13 @@ class Signup extends Component {
     pin: '',
   }
 
-  handleSubmit = () => {
-    console.log('New User: ', this.state)
+  handleSubmit = async () => {
     setUserEmail(this.state.email)
     setUserPin(this.state.pin)
+    setUserUUID()
+    const userStoredEmail = await store.getItemAsync('email')
+    const userUUID = await store.getItemAsync('userUUID')
+    createUser(userStoredEmail, userUUID)
     setTimeout(() => {
       this.props.navigation.navigate('AccountCreated')
     }, 500)
@@ -85,9 +93,9 @@ class Signup extends Component {
           </View>
           <View style={{ height: 10 }} />
           <View>
-            <Button
+            <Text
               raised
-              backgroundColor="#006DB6"
+              backgroundColor=""
               icon={{ name: 'md-arrow-round-back', type: 'ionicon' }}
               title="BACK TO LOG IN"
               onPress={() => this.props.navigation.navigate('Login')}

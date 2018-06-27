@@ -10,7 +10,7 @@ import {
 
 import { setUserEmail, setUserPin } from '../utils/secure-store'
 
-export class Signup extends Component {
+class Signup extends Component {
   state = {
     email: '',
     pin: '',
@@ -20,6 +20,9 @@ export class Signup extends Component {
     console.log('New User: ', this.state)
     setUserEmail(this.state.email)
     setUserPin(this.state.pin)
+    setTimeout(() => {
+      this.props.navigation.navigate('AccountCreated')
+    }, 500)
   }
 
   render() {

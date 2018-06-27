@@ -13,7 +13,7 @@ import {
   retrieveAndValidateUserPin,
 } from '../utils/secure-store'
 
-export class Login extends Component {
+class Login extends Component {
   state = {
     email: '',
     pin: '',

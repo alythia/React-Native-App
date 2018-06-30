@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const rootDomain = 'http://localhost:8080'
+const rootDomain = 'http://localhost:8080' // TODO: THIS WILL HAVE TO BE A HTTPS
 // const rootDomain = 'http://172.16.23.149:8080'
 
 export const createUser = async (userEmail, userUUID) => {
@@ -20,12 +20,17 @@ export const createUser = async (userEmail, userUUID) => {
 
 export const transferData = async (QRCodeData, userEmail, userUUID) => {
   try {
+    const { transactionIdentifier, clientIdentifier } = QRCodeData
     const payload = {
-      data: QRCodeData,
+      transactionIdentifier: transactionIdentifier,
+      clientIdentifier: clientIdentifier,
       email: userEmail,
-      UUID: userUUID,
+      userIdentifier: userUUID,
     }
-    const { data } = await axios.post(rootDomain + '/api/test-qr', payload)
+    const { data } = await axios.post(
+      rootDomain + '/api/users/verify/',
+      transactionIdentifier
+    )
     console.log('transferData res: ', data)
     return data
   } catch (error) {

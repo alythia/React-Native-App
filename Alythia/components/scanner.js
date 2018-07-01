@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
 import { transferData } from '../utils/routes';
 import { store } from '../utils/secure-store';
@@ -24,19 +24,18 @@ export class Scanner extends Component {
       return <Text>No access to camera</Text>;
     } else {
       return (
-        <View style={{ flex: 1 }}>
-          <View style={this.styles.header}>Scan the Code!</View>
-          <BarCodeScanner onBarCodeRead={this._handleBarCodeRead} style={StyleSheet.absoluteFillObject} />
-        </View>
+        <BarCodeScanner onBarCodeRead={this._handleBarCodeRead} style={[StyleSheet.absoluteFill, styles.container]}>
+          <View style={styles.layerTop}>
+            <Button title="Back" onPress={() => this.props.navigation.navigate('Login')} />
+          </View>
+          <View style={styles.layerCenter}>
+            <View style={styles.focused} />
+          </View>
+          <View style={styles.layerBottom} />
+        </BarCodeScanner>
       );
     }
   }
-
-  styles = {
-    header: {
-      height: 20
-    }
-  };
 
   _handleBarCodeRead = async ({ type, data }) => {
     const userStoredEmail = await store.getItemAsync('email');
@@ -56,5 +55,37 @@ export class Scanner extends Component {
     }
   };
 }
+
+const opacity = 'rgba(0, 0, 0, .6)';
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  layerTop: {
+    flex: 1,
+    backgroundColor: opacity,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
+  },
+  layerCenter: {
+    flex: 5
+  },
+  layerLeft: {
+    flex: 1,
+    backgroundColor: opacity
+  },
+  focused: {
+    flex: 10
+  },
+  layerRight: {
+    flex: 1,
+    backgroundColor: opacity
+  },
+  layerBottom: {
+    flex: 1,
+    backgroundColor: opacity
+  }
+});
 
 export default Scanner;

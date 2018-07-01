@@ -26,6 +26,8 @@ class Signup extends Component {
     }, 500);
   };
 
+  isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   render() {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -40,6 +42,7 @@ class Signup extends Component {
               <TextInput
                 autoFocus
                 style={styles.formInput}
+                selectionColor='#000000'
                 placeholder="Email"
                 textAlign={'center'}
                 value={this.state.email}
@@ -49,13 +52,14 @@ class Signup extends Component {
             </View>
 
             <View style={styles.buttonArea}>
-              <TouchableOpacity onPress={this.handleSubmit}>
-                <Image source={require('../public/buttons/email_button.png')} />
-              </TouchableOpacity>
-              <Button
-                title="Back"
-                onPress={() => this.props.navigation.navigate('Login')}
-              />
+              {this.isEmail.test(this.state.email) ? (
+                <TouchableOpacity onPress={this.handleSubmit}>
+                  <Image source={require('../public/buttons/email_button.png')} />
+                </TouchableOpacity>
+              ) : (
+                <Image source={require('../public/buttons/email_button_disabled.png')} />
+              )}
+              <Button title="Back" onPress={() => this.props.navigation.navigate('Login')} />
             </View>
           </View>
         </ImageBackground>

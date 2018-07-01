@@ -1,4 +1,10 @@
 {
+  "ios" : {
+    "bundleIdentifier": "com.coolbeans",
+    "infoPlist": {
+      "NSFaceIDUsageDescription": "This app will optionally use Face ID or Touch ID to save login"
+    }
+  },
   "expo": {
     "sdkVersion": "27.0.0"
   }

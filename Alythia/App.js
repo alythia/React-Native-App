@@ -6,6 +6,7 @@ import Signup from './components/signup'
 import Signup_pin from './components/signup-pin'
 import AccountCreated from './components/account-created'
 import AuthorizingView from './components/authorizing-view'
+import UserLogin from './components/userLogin'
 import { createStackNavigator } from 'react-navigation'
 
 const App = createStackNavigator(
@@ -17,14 +18,16 @@ const App = createStackNavigator(
     AccountCreated: { screen: AccountCreated },
     AuthorizingView: { screen: AuthorizingView },
     Scanner: { screen: Scanner },
+    UserLogin: { screen: UserLogin }
   },
   {
     navigationOptions: {
       headerLeft: null,
+      headerTransparent: true,
+      gesturesEnabled: false,
       headerStyle: {
-        backgroundColor: '#cccccc',
-        height: 5,
-      },
+        borderBottomWidth: 0
+      }
     },
   }
 )

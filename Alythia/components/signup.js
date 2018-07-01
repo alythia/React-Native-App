@@ -10,17 +10,16 @@ import {
   Button,
   Image
 } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Text } from 'react-native-elements';
-import { store, setUserEmail, setUserPin, setUserUUID } from '../utils/secure-store';
-import { createUser } from '../utils/routes';
+import { Text } from 'react-native-elements';
+import { setUserEmail, setUserUUID } from '../utils/secure-store';
 
 class Signup extends Component {
   state = {
-    pin: ''
+    email: ''
   };
 
   handleSubmit = async () => {
-    setUserPin(this.state.pin);
+    setUserEmail(this.state.email);
     setUserUUID();
     setTimeout(() => {
       this.props.navigation.navigate('Signup_pin');
@@ -54,9 +53,7 @@ class Signup extends Component {
                 <Image source={require('../public/buttons/email_button.png')} />
               </TouchableOpacity>
               <Button
-                backgroundColor=""
-                icon={{ name: 'md-arrow-round-back', type: 'ionicon' }}
-                title="BACK TO LOG IN"
+                title="Back"
                 onPress={() => this.props.navigation.navigate('Login')}
               />
             </View>
@@ -92,9 +89,9 @@ const styles = StyleSheet.create({
   formInput: {
     color: '#ecf0f1',
     fontSize: 20,
-    height: 40,
+    height: 50,
     width: '90%',
-    backgroundColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: 'rgba(255,255,255,0.2)',
     margin: 10,
     paddingLeft: 15,
     paddingRight: 15,

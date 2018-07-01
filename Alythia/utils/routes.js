@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const rootDomain = 'http://localhost:8080' // TODO: THIS WILL HAVE TO BE A HTTPS
+// my home remote localhost to use my own iPhone (not simulator)
+const rootDomain = 'http://10.0.1.15:8080' // TODO: THIS WILL HAVE TO BE A HTTPS
 // const rootDomain = 'http://172.16.23.149:8080'
 
 export const createUser = async (userEmail, userUUID) => {

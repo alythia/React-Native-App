@@ -15,16 +15,15 @@ export default class Loading extends React.Component {
   componentDidMount = async () => {
     const userStoredEmail = await store.getItemAsync('email')
     this.setState({ email: userStoredEmail })
-
     setTimeout(() => this.handleSignIn(), 2000)
   }
 
   handleSignIn = () => {
-    // if (this.state.email) {
-    //   handleBiometrics(this.props.navigation.navigate);
-    // } else {
-    this.props.navigation.navigate('Login')
-    // }
+    if (this.state.email) {
+      handleBiometrics(this.props.navigation.navigate);
+    } else {
+      this.props.navigation.navigate('Signup')
+    }
   }
 
   render() {

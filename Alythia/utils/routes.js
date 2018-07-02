@@ -28,6 +28,7 @@ export const transferData = async (QRCodeData, userEmail, userUUID) => {
       email: userEmail,
       userIdentifier: userUUID
     };
+    console.log("POSTed to Alythia", payload);
     const { data } = await axios.post(
       rootDomain + "/api/users/verify/",
       payload

@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo';
+import { deleteUser } from '../utils/secure-store';
+import handleBiometrics from './biometrics';
 
 class UsersPage extends React.Component {
   handleChangePin = () => {
@@ -15,6 +17,8 @@ class UsersPage extends React.Component {
 
   handleDeleteAccount = () => {
     console.log('deleting account');
+    deleteUser();
+    this.props.navigation.navigate('Signup')
   };
 
   render() {

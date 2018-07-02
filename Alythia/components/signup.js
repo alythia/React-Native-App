@@ -59,7 +59,6 @@ class Signup extends Component {
               ) : (
                 <Image source={require('../public/buttons/email_button_disabled.png')} />
               )}
-              <Button title="Back" onPress={() => this.props.navigation.navigate('Login')} />
             </View>
           </View>
         </ImageBackground>

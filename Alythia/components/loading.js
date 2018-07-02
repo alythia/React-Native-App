@@ -14,11 +14,13 @@ export default class Loading extends React.Component {
 
   componentDidMount = async () => {
     const userStoredEmail = await store.getItemAsync('email')
+    const pin = await store.getItemAsync('pin')
     this.setState({ email: userStoredEmail })
     setTimeout(() => this.handleSignIn(), 2000)
   }
 
   handleSignIn = () => {
+    console.log(this.state.email)
     if (this.state.email) {
       handleBiometrics(this.props.navigation.navigate);
     } else {

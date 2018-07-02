@@ -2,7 +2,7 @@ const handleBiometrics = async navigate => {
   try {
     const isHardwareSupported = await Expo.Fingerprint.hasHardwareAsync();
     console.log('hardware supported', isHardwareSupported);
-    if (!isHardwareSupported) {
+    if (isHardwareSupported) {
       const fingerpringExists = await Expo.Fingerprint.isEnrolledAsync();
       console.log('fingerprint exist?', fingerpringExists);
       if (fingerpringExists === true) {
@@ -13,7 +13,8 @@ const handleBiometrics = async navigate => {
           navigate('UserLogin');
         }
       }else{
-        navigate('Login') //change this to UselLogin
+        console.log('navigating to UserLogin')
+        navigate('UserLogin') //change this to UselLogin
       }
     }else{
       console.log('TouchID or FaceID is not supported')

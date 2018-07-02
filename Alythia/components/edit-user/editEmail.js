@@ -8,11 +8,11 @@ import {
   TextInput,
   Button,
   Image,
-  Modal
 } from 'react-native';
 import { Text } from 'react-native-elements';
 import { setUserEmail } from '../../utils/secure-store';
 import { LinearGradient } from 'expo';
+import MyModal from './MyModal';
 const store = Expo.SecureStore;
 
 class EditEmail extends Component {
@@ -45,13 +45,7 @@ class EditEmail extends Component {
     return (
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} accessible={false}>
         <LinearGradient colors={['rgba(0,55,84,0.54)', 'rgba(16,66,95, 1)']} style={styles.background}>
-          <Modal animationType="slide" transparent={false} visible={this.state.modalVisible}>
-            <View style={styles.header}>
-              <View>
-                <Text h1>Email Updated</Text>
-              </View>
-            </View>
-          </Modal>
+          <MyModal message={'Email Updated'} visible={this.state.modalVisible} />
           <View style={styles.mainContainer}>
             <View style={styles.header}>
               <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>

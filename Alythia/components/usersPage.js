@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo';
 class UsersPage extends React.Component {
   handleChangePin = () => {
     console.log('changing pin');
+    this.props.navigation.navigate('EditPin');
   };
 
   handleChangeEmail = () => {

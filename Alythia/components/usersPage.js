@@ -1,50 +1,68 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo';
-import { deleteUser } from '../utils/secure-store';
-import handleBiometrics from './biometrics';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  TouchableOpacity
+} from "react-native";
+import { LinearGradient } from "expo";
+import { deleteUser } from "../utils/secure-store";
+import handleBiometrics from "./biometrics";
 
 class UsersPage extends React.Component {
   handleChangePin = () => {
-    console.log('changing pin');
-    this.props.navigation.navigate('EditPin');
+    this.props.navigation.navigate("EditPin");
   };
 
   handleChangeEmail = () => {
-    console.log('changin email');
-    this.props.navigation.navigate('EditEmail');
+    this.props.navigation.navigate("EditEmail");
   };
 
   handleDeleteAccount = () => {
-    console.log('deleting account');
     deleteUser();
-    this.props.navigation.navigate('Signup')
+    this.props.navigation.navigate("Signup");
   };
 
   render() {
     return (
       <View style={styles.mainContainer}>
-        <LinearGradient colors={['rgba(0,55,84,0.54)', 'rgba(16,66,95, 1)']} style={styles.background}>
+        <LinearGradient
+          colors={["rgba(0,55,84,0.54)", "rgba(16,66,95, 1)"]}
+          style={styles.background}
+        >
           <View style={styles.headerArea}>
-            <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
+            <Text h4 style={{ color: "#ecf0f1", fontWeight: "500" }}>
               USERS PAGE
             </Text>
           </View>
           <View style={styles.mainArea}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Scanner')}>
-              <Image style={styles.img} source={require('../public/buttons/scanner_button.png')} />
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Scanner")}
+            >
+              <Image
+                style={styles.img}
+                source={require("../public/buttons/scanner_button.png")}
+              />
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handleChangeEmail}>
-              <Image style={styles.img} source={require('../public/buttons/change_email.png')} />
+              <Image
+                style={styles.img}
+                source={require("../public/buttons/change_email.png")}
+              />
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handleChangePin}>
-              <Image style={styles.img} source={require('../public/buttons/change_pin.png')} />
+              <Image
+                style={styles.img}
+                source={require("../public/buttons/change_pin.png")}
+              />
             </TouchableOpacity>
           </View>
           <View style={styles.bottom}>
             <TouchableOpacity onPress={this.handleDeleteAccount}>
-              <Image source={require('../public/buttons/delete_account.png')} />
-            </TouchableOpacity>{' '}
+              <Image source={require("../public/buttons/delete_account.png")} />
+            </TouchableOpacity>{" "}
           </View>
         </LinearGradient>
       </View>
@@ -54,7 +72,7 @@ class UsersPage extends React.Component {
 
 const styles = StyleSheet.create({
   background: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
     top: 0,
@@ -62,25 +80,25 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   headerArea: {
     flex: 1,
     height: 30,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+    justifyContent: "flex-end",
+    alignItems: "center"
   },
   mainArea: {
     flex: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   img: {
     marginTop: 5
   },
   bottom: {
     flex: 2,
-    alignItems: 'center'
+    alignItems: "center"
   }
 });
 

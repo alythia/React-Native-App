@@ -9,7 +9,7 @@ export default class MyModal extends Component {
       <Modal animationType="slide" transparent={false} visible={visible}>
         <View style={styles.header}>
           <View>
-            <Text h2>{message}</Text>
+            <Text h2 style={{color: '#ffffff'}}>{message}</Text>
           </View>
         </View>
       </Modal>

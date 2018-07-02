@@ -26,7 +26,7 @@ export class Scanner extends Component {
       return (
         <BarCodeScanner onBarCodeRead={this._handleBarCodeRead} style={[StyleSheet.absoluteFill, styles.container]}>
           <View style={styles.layerTop}>
-            <Button title="Back" onPress={() => this.props.navigation.navigate('Login')} />
+            <Button title="Back" onPress={() => this.props.navigation.navigate('UsersPage')} />
           </View>
           <View style={styles.layerCenter}>
             <View style={styles.focused} />

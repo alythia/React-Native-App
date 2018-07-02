@@ -14,7 +14,7 @@ import { Text } from 'react-native-elements';
 import { store, setUserPin } from '../utils/secure-store';
 import { createUser } from '../utils/routes';
 
-class Signup extends Component {
+class SignupPin extends Component {
   constructor() {
     super();
     this.state = {
@@ -193,4 +193,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Signup;
+export default SignupPin;

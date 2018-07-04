@@ -26,7 +26,7 @@ export class Scanner extends Component {
       return (
         <BarCodeScanner onBarCodeRead={this._handleBarCodeRead} style={[StyleSheet.absoluteFill, styles.container]}>
           <View style={styles.layerTop}>
-            <Button title="Back" onPress={() => this.props.navigation.navigate('UsersPage')} />
+            <Button title="Back" style={{backgroundColor: '#eeeeee', padding: 10}} onPress={() => this.props.navigation.navigate('UsersPage')} />
           </View>
           <View style={styles.layerCenter}>
             <View style={styles.focused} />
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: opacity,
     justifyContent: 'flex-end',
-    alignItems: 'flex-end'
+    alignItems: 'flex-start'
   },
   layerCenter: {
     flex: 5

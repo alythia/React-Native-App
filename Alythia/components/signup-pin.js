@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
@@ -9,64 +9,64 @@ import {
   Image,
   Button,
   TextInput
-} from 'react-native';
-import { Text } from 'react-native-elements';
-import { store, setUserPin } from '../utils/secure-store';
-import { createUser } from '../utils/routes';
+} from "react-native";
+import { Text } from "react-native-elements";
+import { store, setUserPin } from "../utils/secure-store";
+import { createUser } from "../utils/routes";
 
 class SignupPin extends Component {
   constructor() {
     super();
     this.state = {
-      pin1: '',
-      pin2: '',
-      pin3: '',
-      pin4: '',
-      pin5: '',
-      pin6: '',
+      pin1: "",
+      pin2: "",
+      pin3: "",
+      pin4: "",
+      pin5: "",
+      pin6: "",
       created: false
     };
-  
-    this.mainInput = '';
+
+    this.mainInput = "";
   }
 
   handleSubmit = async () => {
     const pinCode = Object.values(this.state); // get all values
     pinCode.pop(); // throw away created: false
-    const pin = pinCode.join(''); // get values from pin1 to pin6
-    console.log('this is your pin', pin);
+    const pin = pinCode.join(""); // get values from pin1 to pin6
     setUserPin(pin);
-    const userStoredEmail = await store.getItemAsync('email');
-    const userUUID = await store.getItemAsync('userUUID');
+    const userStoredEmail = await store.getItemAsync("email");
+    const userUUID = await store.getItemAsync("userUUID");
     createUser(userStoredEmail, userUUID);
     setTimeout(() => {
-      this.props.navigation.navigate('AccountCreated');
+      this.props.navigation.navigate("AccountCreated");
     }, 500);
   };
 
   handleMainInput = text => {
-    console.log(this.mainInput);
     for (let i = 0; i < 6; i++) {
       if (text[i]) {
-        this.setState({ ['pin' + (i + 1)]: text[i] });
+        this.setState({ ["pin" + (i + 1)]: text[i] });
       } else {
-        this.setState({ ['pin' + (i + 1)]: '' });
+        this.setState({ ["pin" + (i + 1)]: "" });
       }
     }
     if (text.length === 6) {
-      this.setState({created: true})
+      this.setState({ created: true });
       Keyboard.dismiss();
-    
     }
   };
 
   render() {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <ImageBackground source={require('../public/sign_up_bg.png')} style={styles.backgroundImage}>
+        <ImageBackground
+          source={require("../public/sign_up_bg.png")}
+          style={styles.backgroundImage}
+        >
           <View style={styles.mainContainer}>
             <View style={styles.header}>
-              <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
+              <Text h4 style={{ color: "#ecf0f1", fontWeight: "500" }}>
                 NEW PIN
               </Text>
             </View>
@@ -80,7 +80,7 @@ class SignupPin extends Component {
               />
               <TextInput
                 style={styles.formInput}
-                textAlign={'center'}
+                textAlign={"center"}
                 value={this.state.pin1}
                 maxLength={1}
                 secureTextEntry={true}
@@ -88,7 +88,7 @@ class SignupPin extends Component {
               />
               <TextInput
                 style={styles.formInput}
-                textAlign={'center'}
+                textAlign={"center"}
                 value={this.state.pin2}
                 maxLength={1}
                 secureTextEntry={true}
@@ -96,7 +96,7 @@ class SignupPin extends Component {
               />
               <TextInput
                 style={styles.formInput}
-                textAlign={'center'}
+                textAlign={"center"}
                 value={this.state.pin3}
                 maxLength={1}
                 secureTextEntry={true}
@@ -104,7 +104,7 @@ class SignupPin extends Component {
               />
               <TextInput
                 style={styles.formInput}
-                textAlign={'center'}
+                textAlign={"center"}
                 value={this.state.pin4}
                 maxLength={1}
                 secureTextEntry={true}
@@ -112,7 +112,7 @@ class SignupPin extends Component {
               />
               <TextInput
                 style={styles.formInput}
-                textAlign={'center'}
+                textAlign={"center"}
                 value={this.state.pin5}
                 maxLength={1}
                 secureTextEntry={true}
@@ -120,7 +120,7 @@ class SignupPin extends Component {
               />
               <TextInput
                 style={styles.formInput}
-                textAlign={'center'}
+                textAlign={"center"}
                 value={this.state.pin6}
                 maxLength={1}
                 secureTextEntry={true}
@@ -131,14 +131,16 @@ class SignupPin extends Component {
             <View style={styles.buttonArea}>
               {this.state.created ? (
                 <TouchableOpacity onPress={this.handleSubmit}>
-                  <Image source={require('../public/buttons/create_pin.png')} />
+                  <Image source={require("../public/buttons/create_pin.png")} />
                 </TouchableOpacity>
               ) : (
-                <Image source={require('../public/buttons/create_pin_disabled.png')} />
+                <Image
+                  source={require("../public/buttons/create_pin_disabled.png")}
+                />
               )}
               <Button
                 title="Back"
-                onPress={() => this.props.navigation.navigate('Signup')}
+                onPress={() => this.props.navigation.navigate("Signup")}
               />
             </View>
           </View>
@@ -151,32 +153,32 @@ class SignupPin extends Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center'
+    flexDirection: "column",
+    justifyContent: "center"
   },
   backgroundImage: {
     flex: 1,
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
   },
   header: {
     flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   pin: {
     flex: 1,
     height: 40,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   },
   formInput: {
-    color: '#ecf0f1',
+    color: "#ecf0f1",
     fontSize: 20,
     height: 50,
     width: 50,
-    backgroundColor: 'rgba(255,255,255,0.2)',
+    backgroundColor: "rgba(255,255,255,0.2)",
     margin: 2,
     paddingLeft: 5,
     paddingRight: 5,
@@ -186,10 +188,10 @@ const styles = StyleSheet.create({
   },
   buttonArea: {
     flex: 2,
-    alignItems: 'center'
+    alignItems: "center"
   },
   backButton: {
-    justifyContent: 'flex-start'
+    justifyContent: "flex-start"
   }
 });
 

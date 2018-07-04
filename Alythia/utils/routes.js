@@ -1,10 +1,9 @@
 import axios from 'axios'
 
 // my home remote localhost to use my own iPhone (not simulator)
-// const rootDomain = 'http://10.0.1.15:8080'
-const rootDomain = 'http://localhost:8080' // TODO: THIS WILL HAVE TO BE A HTTPS
+const rootDomain = 'http://10.0.1.15:8080'
 // const rootDomain = 'http://172.16.23.149:8080'
-
+// const rootDomain = 'http://alythia.herokuapp.com' // TODO: THIS WILL HAVE TO BE A HTTPS
 
 export const createUser = async (userEmail, userUUID) => {
   try {
@@ -23,7 +22,7 @@ export const createUser = async (userEmail, userUUID) => {
 
 export const transferData = async (QRCodeData, userEmail, userUUID) => {
   try {
-    const { transactionIdentifier, clientIdentifier } = QRCodeData
+    const { transactionIdentifier, clientIdentifier } = JSON.parse(QRCodeData)
     const payload = {
       transactionIdentifier: transactionIdentifier,
       clientIdentifier: clientIdentifier,
@@ -32,7 +31,7 @@ export const transferData = async (QRCodeData, userEmail, userUUID) => {
     }
     const { data } = await axios.post(
       rootDomain + '/api/users/verify/',
-      transactionIdentifier
+      payload
     )
     console.log('transferData res: ', data)
     return data

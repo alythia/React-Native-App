@@ -1,12 +1,7 @@
 const handleBiometrics = async navigate => {
   try {
     const isHardwareSupported = await Expo.Fingerprint.hasHardwareAsync();
-<<<<<<< HEAD
-    console.log('hardware supported', isHardwareSupported);
-    if (!isHardwareSupported) {
-=======
     if (isHardwareSupported) {
->>>>>>> b6d3157e55a4e42b523faa3c0fdd58b0ef365459
       const fingerpringExists = await Expo.Fingerprint.isEnrolledAsync();
       if (fingerpringExists === true) {
         const fingerPrint = await Expo.Fingerprint.authenticateAsync();

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   View,
   Keyboard,
   TouchableWithoutFeedback,
@@ -8,12 +7,12 @@ import {
   TextInput,
   Button,
   Image,
+  ImageBackground
 } from 'react-native';
 import { Text } from 'react-native-elements';
-import { setUserEmail } from '../../utils/secure-store';
-import { LinearGradient } from 'expo';
+import { setUserEmail, store } from '../../utils/secure-store';
+import { styles } from '../../utils/styles';
 import MyModal from './MyModal';
-const store = Expo.SecureStore;
 
 class EditEmail extends Component {
   state = {
@@ -43,86 +42,45 @@ class EditEmail extends Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} accessible={false}>
-        <LinearGradient colors={['rgba(0,55,84,0.54)', 'rgba(16,66,95, 1)']} style={styles.background}>
+      <TouchableWithoutFeedback>
+        <ImageBackground source={require('../../public/background.png')} style={styles.backgroundImage}>
           <MyModal message={'Email Updated'} visible={this.state.modalVisible} />
-          <View style={styles.mainContainer}>
-            <View style={styles.header}>
-              <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
-                CHANGE YOUR EMAIL
-              </Text>
-            </View>
-            <View style={styles.email}>
-              <TextInput
-                autoFocus
-                style={styles.formInput}
-                selectionColor="#000000"
-                placeholder="Email"
-                textAlign={'center'}
-                value={this.state.email}
-                onChangeText={text => this.setState({ email: text })}
-                keyboardType="email-address"
-              />
-            </View>
+          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} accessible={false}>
+            <View style={styles.mainContainer}>
+              <View style={styles.header}>
+                <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
+                  CHANGE YOUR EMAIL
+                </Text>
+              </View>
+              <View style={styles.email}>
+                <TextInput
+                  autoFocus
+                  style={styles.formInput}
+                  selectionColor="#000000"
+                  placeholder="Email"
+                  textAlign={'center'}
+                  value={this.state.email}
+                  onChangeText={text => this.setState({ email: text })}
+                  keyboardType="email-address"
+                />
+              </View>
 
-            <View style={styles.buttonArea}>
-              {this.isEmail.test(this.state.email) ? (
-                <TouchableOpacity onPress={this.handleSubmit}>
-                  <Image source={require('../../public/buttons/email_button.png')} />
-                </TouchableOpacity>
-              ) : (
-                <Image source={require('../../public/buttons/email_button_disabled.png')} />
-              )}
-              <Button title="Back" onPress={() => this.props.navigation.navigate('UsersPage')} />
+              <View style={styles.buttonArea}>
+                {this.isEmail.test(this.state.email) ? (
+                  <TouchableOpacity onPress={this.handleSubmit}>
+                    <Image source={require('../../public/buttons/email_button.png')} />
+                  </TouchableOpacity>
+                ) : (
+                  <Image source={require('../../public/buttons/email_button_disabled.png')} />
+                )}
+                <Button title="Back" onPress={() => this.props.navigation.navigate('UsersPage')} />
+              </View>
             </View>
-          </View>
-        </LinearGradient>
+          </TouchableWithoutFeedback>
+        </ImageBackground>
       </TouchableWithoutFeedback>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0
-  },
-  mainContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  header: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  email: {
-    flex: 1,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  formInput: {
-    color: '#ecf0f1',
-    fontSize: 20,
-    height: 50,
-    width: '90%',
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    margin: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 5,
-    paddingBottom: 5,
-    borderRadius: 100
-  },
-  buttonArea: {
-    flex: 2,
-    alignItems: 'center'
-  }
-});
 
 export default EditEmail;

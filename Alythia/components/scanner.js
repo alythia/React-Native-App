@@ -29,10 +29,7 @@ export class Scanner extends Component {
           style={[StyleSheet.absoluteFill, styles.container]}
         >
           <View style={styles.layerTop}>
-            <Button
-              title="Back"
-              onPress={() => this.props.navigation.navigate("UsersPage")}
-            />
+            <Button title="Back" style={{backgroundColor: '#eeeeee', padding: 10}} onPress={() => this.props.navigation.navigate('UsersPage')} />
           </View>
           <View style={styles.layerCenter}>
             <View style={styles.focused} />
@@ -68,8 +65,8 @@ const styles = StyleSheet.create({
   layerTop: {
     flex: 1,
     backgroundColor: opacity,
-    justifyContent: "flex-end",
-    alignItems: "flex-end"
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start'
   },
   layerCenter: {
     flex: 5

@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#006DB6'
+    backgroundColor: '#061A40'
   }
 });

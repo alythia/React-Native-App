@@ -1,17 +1,21 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  TouchableOpacity
-} from "react-native";
-import { LinearGradient } from "expo";
-import { deleteUser } from "../utils/secure-store";
-import handleBiometrics from "./biometrics";
+import React from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { deleteUser, store } from '../utils/secure-store';
 
 class UsersPage extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      currentEmail: ''
+    }
+  }
+  async componentDidMount(){
+    const userStoredEmail = await store.getItemAsync('email');
+    this.setState({
+      currentEmail: userStoredEmail
+    })
+  }
+
   handleChangePin = () => {
     this.props.navigation.navigate("EditPin");
   };
@@ -22,19 +26,17 @@ class UsersPage extends React.Component {
 
   handleDeleteAccount = () => {
     deleteUser();
-    this.props.navigation.navigate("Signup");
+    this.props.navigation.navigate('Signup');
   };
 
   render() {
     return (
       <View style={styles.mainContainer}>
-        <LinearGradient
-          colors={["rgba(0,55,84,0.54)", "rgba(16,66,95, 1)"]}
-          style={styles.background}
-        >
+        <ImageBackground source={require('../public/background.png')} style={styles.backgroundImage}>
           <View style={styles.headerArea}>
-            <Text h4 style={{ color: "#ecf0f1", fontWeight: "500" }}>
-              USERS PAGE
+            <Image source={require('../public/user.png')} />
+            <Text style={{color: '#ffffff', fontSize: 16, paddingTop: 10, textAlign: 'center'}}>
+            {this.state.currentEmail}
             </Text>
           </View>
           <View style={styles.mainArea}>
@@ -64,34 +66,31 @@ class UsersPage extends React.Component {
               <Image source={require("../public/buttons/delete_account.png")} />
             </TouchableOpacity>{" "}
           </View>
-        </LinearGradient>
+        </ImageBackground>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  background: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
   },
   mainContainer: {
     flex: 1,
     justifyContent: "center"
   },
   headerArea: {
-    flex: 1,
-    height: 30,
-    justifyContent: "flex-end",
-    alignItems: "center"
+    flex: 3,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   mainArea: {
-    flex: 10,
-    justifyContent: "center",
-    alignItems: "center"
+    flex: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   img: {
     marginTop: 5

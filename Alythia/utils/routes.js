@@ -1,7 +1,8 @@
 import axios from "axios";
 import Navigate from "../App.js";
 
-const rootDomain = "http://alythia.herokuapp.com";
+const rootDomain = "https://alythia.herokuapp.com";
+// const rootDomain = "http://172.16.23.149:8080";
 
 export const createUser = async (userEmail, userUUID) => {
   try {
@@ -18,17 +19,22 @@ export const createUser = async (userEmail, userUUID) => {
 
 export const transferData = async (QRCodeData, userEmail, userUUID) => {
   try {
-    const { transactionIdentifier, clientIdentifier } = JSON.parse(QRCodeData);
+    const { transactionIdentifier, clientIdentifier, website } = JSON.parse(
+      QRCodeData
+    );
 
     const payload = {
       transactionIdentifier: transactionIdentifier,
       clientIdentifier: clientIdentifier,
       email: userEmail,
-      userIdentifier: userUUID
+      userIdentifier: userUUID,
+      website
     };
+
     console.log("POSTed to Alythia", payload);
+
     const { data } = await axios.post(
-      "https://alythia.herokuapp.com/api/users/verify/",
+      `${rootDomain}/api/users/verify/`,
       payload
     );
 

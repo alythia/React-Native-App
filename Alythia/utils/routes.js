@@ -19,7 +19,6 @@ export const createUser = async (userEmail, userUUID) => {
 export const transferData = async (QRCodeData, userEmail, userUUID) => {
   try {
     const { transactionIdentifier, clientIdentifier, website } = JSON.parse(QRCodeData);
-
     const payload = {
       transactionIdentifier: transactionIdentifier,
       clientIdentifier: clientIdentifier,

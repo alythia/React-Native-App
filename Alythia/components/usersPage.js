@@ -1,19 +1,27 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native';
-import { deleteUser, store } from '../utils/secure-store';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ImageBackground
+} from "react-native";
+import { deleteUser, store } from "../utils/secure-store";
+import axios from "axios";
 
 class UsersPage extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      currentEmail: ''
-    }
+      currentEmail: ""
+    };
   }
-  async componentDidMount(){
-    const userStoredEmail = await store.getItemAsync('email');
+  async componentDidMount() {
+    const userStoredEmail = await store.getItemAsync("email");
     this.setState({
       currentEmail: userStoredEmail
-    })
+    });
   }
 
   handleChangePin = () => {
@@ -26,17 +34,28 @@ class UsersPage extends React.Component {
 
   handleDeleteAccount = () => {
     deleteUser();
-    this.props.navigation.navigate('Signup');
+    // axios.delete("http://alythia.herokuapp.com/api/", this.state.currentEmail)
+    this.props.navigation.navigate("Signup");
   };
 
   render() {
     return (
       <View style={styles.mainContainer}>
-        <ImageBackground source={require('../public/background.png')} style={styles.backgroundImage}>
+        <ImageBackground
+          source={require("../public/background.png")}
+          style={styles.backgroundImage}
+        >
           <View style={styles.headerArea}>
-            <Image source={require('../public/user.png')} />
-            <Text style={{color: '#ffffff', fontSize: 16, paddingTop: 10, textAlign: 'center'}}>
-            {this.state.currentEmail}
+            <Image source={require("../public/user.png")} />
+            <Text
+              style={{
+                color: "#ffffff",
+                fontSize: 16,
+                paddingTop: 10,
+                textAlign: "center"
+              }}
+            >
+              {this.state.currentEmail}
             </Text>
           </View>
           <View style={styles.mainArea}>
@@ -75,8 +94,8 @@ class UsersPage extends React.Component {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
   },
   mainContainer: {
     flex: 1,
@@ -84,13 +103,13 @@ const styles = StyleSheet.create({
   },
   headerArea: {
     flex: 3,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   mainArea: {
     flex: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   img: {
     marginTop: 5

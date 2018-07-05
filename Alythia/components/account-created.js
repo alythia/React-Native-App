@@ -1,14 +1,14 @@
 /*eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Icon, Text } from 'react-native-elements'
+import React, { Component } from "react";
+import { StyleSheet, View } from "react-native";
+import { Icon, Text } from "react-native-elements";
 
 export default class AccountCreated extends Component {
   componentDidMount = () => {
     setTimeout(() => {
-      this.props.navigation.navigate('Scanner')
-    }, 2000)
-  }
+      this.props.navigation.navigate("Scanner");
+    }, 2000);
+  };
 
   render() {
     return (
@@ -21,21 +21,21 @@ export default class AccountCreated extends Component {
         </Text>
         <View style={styles.padding} />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#061A40',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#061A40",
+    alignItems: "center",
+    justifyContent: "center"
   },
   success: {
-    color: 'white',
+    color: "white"
   },
   padding: {
-    flex: 4,
-  },
-})
+    flex: 4
+  }
+});

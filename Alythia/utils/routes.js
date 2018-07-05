@@ -33,7 +33,7 @@ export const transferData = async (QRCodeData, userEmail, userUUID) => {
 
     if (data) {
       setTimeout(() => {
-        this.props.navigation.navigate('Scanner')
+        this.props.navigation.navigate('AuthSuccess')
       }, 1000)
     }
 

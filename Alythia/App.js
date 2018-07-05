@@ -10,6 +10,7 @@ import UserLogin from './components/userLogin'
 import UsersPage from './components/usersPage'
 import EditEmail from './components/edit-user/editEmail'
 import EditPin from './components/edit-user/editPin'
+import AuthSuccess from './components/auth-success'
 import { createStackNavigator } from 'react-navigation'
 
 const App = createStackNavigator(
@@ -24,7 +25,8 @@ const App = createStackNavigator(
     UserLogin: { screen: UserLogin },
     UsersPage: { screen: UsersPage },
     EditEmail: { screen: EditEmail },
-    EditPin: { screen: EditPin }
+    EditPin: { screen: EditPin },
+    AuthSuccess: { screen: AuthSuccess },
   },
   {
     navigationOptions: {
@@ -32,8 +34,8 @@ const App = createStackNavigator(
       headerTransparent: true,
       gesturesEnabled: false,
       headerStyle: {
-        borderBottomWidth: 0
-      }
+        borderBottomWidth: 0,
+      },
     },
   }
 )

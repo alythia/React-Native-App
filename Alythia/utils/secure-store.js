@@ -1,6 +1,5 @@
 import Expo from 'expo';
 import uuidv4 from 'uuid/v4';
-import { createUser } from '../utils/routes';
 
 // Creates encrypted SecureStore for mobile user
 export const store = Expo.SecureStore;
@@ -10,9 +9,7 @@ export const setUserEmail = emailValue => {
   store
     .setItemAsync(
       'email',
-      emailValue //, {
-      //   keychainAccessible: ["WHEN_UNLOCKED"] //TODO: This might not be the right was to write this
-      // })
+      emailValue 
     )
     .then(() => {
       console.log('Email storage successfull');
@@ -23,14 +20,11 @@ export const setUserEmail = emailValue => {
 };
 
 // Retrieves email if it exists, sets email if it does not
-export const retrieveUserEmail = async inputEmailValue => {
+export const retrieveUserEmail = async () => {
   try {
     const userStoredEmail = await store.getItemAsync('email');
-    if (userStoredEmail === inputEmailValue) {
-      return userStoredEmail;
-    } else {
-      console.log(`Email address does not match account: ${inputEmailValue}`);
-    }
+    console.log(userStoredEmail)
+    return userStoredEmail.toString();
   } catch (e) {
     console.log(`Email fetch failed (${e})`);
   }
@@ -51,9 +45,7 @@ export const setUserPin = pinValue => {
   store
     .setItemAsync(
       'pin',
-      pinValue //, {
-      //   keychainAccessible: ["WHEN_UNLOCKED"] //TODO: This might not be the right was to write this
-      // })
+      pinValue 
     )
     .then(() => {
       console.log('Pin storage successfull');
@@ -68,9 +60,7 @@ export const setUserUUID = () => {
   store
     .setItemAsync(
       'userUUID',
-      userUUID //, {
-      //   keychainAccessible: ["WHEN_UNLOCKED"] //TODO: This might not be the right was to write this
-      // })
+      userUUID 
     )
     .then(() => {
       console.log('UUID storage successfull');

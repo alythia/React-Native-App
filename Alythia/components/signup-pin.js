@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  StyleSheet,
   View,
   Keyboard,
   TouchableWithoutFeedback,
@@ -9,10 +8,11 @@ import {
   Image,
   Button,
   TextInput
-} from "react-native";
-import { Text } from "react-native-elements";
-import { store, setUserPin } from "../utils/secure-store";
-import { createUser } from "../utils/routes";
+} from 'react-native';
+import { Text } from 'react-native-elements';
+import { store, setUserPin } from '../utils/secure-store';
+import { createUser } from '../utils/routes';
+import { styles } from '../utils/styles';
 
 class SignupPin extends Component {
   constructor() {
@@ -27,7 +27,8 @@ class SignupPin extends Component {
       created: false
     };
 
-    this.mainInput = "";
+    this.mainInput = '';
+    this.inputField = {};
   }
 
   handleSubmit = async () => {
@@ -41,6 +42,10 @@ class SignupPin extends Component {
     setTimeout(() => {
       this.props.navigation.navigate("AccountCreated");
     }, 500);
+  };
+
+  handleFocus = () => {
+    this.inputField.focus();
   };
 
   handleMainInput = text => {
@@ -59,11 +64,8 @@ class SignupPin extends Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <ImageBackground
-          source={require("../public/sign_up_bg.png")}
-          style={styles.backgroundImage}
-        >
+      <ImageBackground source={require('../public/background.png')} style={styles.backgroundImage}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
           <View style={styles.mainContainer}>
             <View style={styles.header}>
               <Text h4 style={{ color: "#ecf0f1", fontWeight: "500" }}>
@@ -75,57 +77,76 @@ class SignupPin extends Component {
                 autoFocus
                 keyboardType="numeric"
                 maxLength={6}
+                ref={r => (this.inputField = r)}
                 style={{ width: 0, height: 0 }}
                 onChangeText={text => this.handleMainInput(text)}
               />
-              <TextInput
-                style={styles.formInput}
-                textAlign={"center"}
-                value={this.state.pin1}
-                maxLength={1}
-                secureTextEntry={true}
-                editable={false}
-              />
-              <TextInput
-                style={styles.formInput}
-                textAlign={"center"}
-                value={this.state.pin2}
-                maxLength={1}
-                secureTextEntry={true}
-                editable={false}
-              />
-              <TextInput
-                style={styles.formInput}
-                textAlign={"center"}
-                value={this.state.pin3}
-                maxLength={1}
-                secureTextEntry={true}
-                editable={false}
-              />
-              <TextInput
-                style={styles.formInput}
-                textAlign={"center"}
-                value={this.state.pin4}
-                maxLength={1}
-                secureTextEntry={true}
-                editable={false}
-              />
-              <TextInput
-                style={styles.formInput}
-                textAlign={"center"}
-                value={this.state.pin5}
-                maxLength={1}
-                secureTextEntry={true}
-                editable={false}
-              />
-              <TextInput
-                style={styles.formInput}
-                textAlign={"center"}
-                value={this.state.pin6}
-                maxLength={1}
-                secureTextEntry={true}
-                editable={false}
-              />
+              <TouchableOpacity onPress={this.handleFocus}>
+                <TextInput
+                  style={styles.pinInput}
+                  textAlign={'center'}
+                  value={this.state.pin1}
+                  maxLength={1}
+                  secureTextEntry={true}
+                  editable={false}
+                  pointerEvents="none"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handleFocus}>
+                <TextInput
+                  style={styles.pinInput}
+                  textAlign={'center'}
+                  value={this.state.pin2}
+                  maxLength={1}
+                  secureTextEntry={true}
+                  editable={false}
+                  pointerEvents="none"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handleFocus}>
+                <TextInput
+                  style={styles.pinInput}
+                  textAlign={'center'}
+                  value={this.state.pin3}
+                  maxLength={1}
+                  secureTextEntry={true}
+                  editable={false}
+                  pointerEvents="none"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handleFocus}>
+                <TextInput
+                  style={styles.pinInput}
+                  textAlign={'center'}
+                  value={this.state.pin4}
+                  maxLength={1}
+                  secureTextEntry={true}
+                  editable={false}
+                  pointerEvents="none"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handleFocus}>
+                <TextInput
+                  style={styles.pinInput}
+                  textAlign={'center'}
+                  value={this.state.pin5}
+                  maxLength={1}
+                  secureTextEntry={true}
+                  editable={false}
+                  pointerEvents="none"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handleFocus}>
+                <TextInput
+                  style={styles.pinInput}
+                  textAlign={'center'}
+                  value={this.state.pin6}
+                  maxLength={1}
+                  secureTextEntry={true}
+                  editable={false}
+                  pointerEvents="none"
+                />
+              </TouchableOpacity>
             </View>
 
             <View style={styles.buttonArea}>
@@ -138,61 +159,13 @@ class SignupPin extends Component {
                   source={require("../public/buttons/create_pin_disabled.png")}
                 />
               )}
-              <Button
-                title="Back"
-                onPress={() => this.props.navigation.navigate("Signup")}
-              />
+              <Button title="Back" onPress={() => this.props.navigation.navigate('Signup')} />
             </View>
           </View>
-        </ImageBackground>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </ImageBackground>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center"
-  },
-  backgroundImage: {
-    flex: 1,
-    width: "100%",
-    height: "100%"
-  },
-  header: {
-    flex: 2,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  pin: {
-    flex: 1,
-    height: 40,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  formInput: {
-    color: "#ecf0f1",
-    fontSize: 20,
-    height: 50,
-    width: 50,
-    backgroundColor: "rgba(255,255,255,0.2)",
-    margin: 2,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingTop: 5,
-    paddingBottom: 5,
-    borderRadius: 10
-  },
-  buttonArea: {
-    flex: 2,
-    alignItems: "center"
-  },
-  backButton: {
-    justifyContent: "flex-start"
-  }
-});
 
 export default SignupPin;

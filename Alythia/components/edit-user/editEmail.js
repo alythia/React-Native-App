@@ -13,16 +13,19 @@ import { Text } from 'react-native-elements';
 import { setUserEmail, store } from '../../utils/secure-store';
 import { styles } from '../../utils/styles';
 import MyModal from './MyModal';
+import axios from 'axios';
 
 class EditEmail extends Component {
   state = {
     email: '',
+    UUID: '',
     modalVisible: false
   };
 
   async componentDidMount() {
     const userStoredEmail = await store.getItemAsync('email');
-    this.setState({ email: userStoredEmail });
+    const userUUID = await store.getItemAsync('userUUID');
+    this.setState({ email: userStoredEmail, UUID: userUUID });
   }
 
   setModalVisible(visible) {
@@ -30,6 +33,13 @@ class EditEmail extends Component {
   }
 
   handleSubmit = async () => {
+    const oldEmail = await store.getItemAsync('email');
+
+    // const result = axios.put('http://alythia.herokuapp.com/api/users/', {UUID: this.state.UUID, email: this.state.email});
+    const result = axios.put('http://10.0.1.15:8080/api/users/', {UUID: this.state.UUID, oldEmail: oldEmail, newEmail: this.state.email});
+
+    console.log('UPDATED EMAIL\n', result);
+
     setUserEmail(this.state.email);
     this.setModalVisible(true);
     setTimeout(() => {

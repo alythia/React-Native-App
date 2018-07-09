@@ -48,6 +48,10 @@ export class Scanner extends Component {
         transferData(data, userStoredEmail, userUUID);
       }
       this.setState({ scanned: true });
+      
+      setTimeout(() => {
+        this.setState({ scanned: false });
+      }, 7000)
 
       this.props.navigation.navigate("AuthorizingView");
     } else {

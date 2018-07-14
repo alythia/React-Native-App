@@ -34,6 +34,7 @@ export const retrieveUserEmail = async () => {
 export const retrieveAndValidateUserPin = async pinValue => {
   try {
     const userStoredPin = await store.getItemAsync('pin');
+    console.log('IN case you forgot: your pin is:', userStoredPin)
     return pinValue === userStoredPin;
   } catch (e) {
     console.log(`Pin fetch failed (${e})`);

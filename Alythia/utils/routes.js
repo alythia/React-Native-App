@@ -1,8 +1,10 @@
 import axios from "axios";
 import Navigate from "../App.js";
 
-const rootDomain = "https://alythia.herokuapp.com";
+// const rootDomain = "https://alythia.herokuapp.com";
 // const rootDomain = "http://172.16.23.149:8080";
+const rootDomain = "http://10.0.1.15:8080";
+
 
 export const createUser = async (userEmail, userUUID) => {
   try {

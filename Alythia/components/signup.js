@@ -14,15 +14,19 @@ import { styles } from '../utils/styles';
 
 class Signup extends Component {
   state = {
-    email: ''
+    email: '',
+    error: ''
   };
 
   handleSubmit = async () => {
-    setUserEmail(this.state.email);
-    setUserUUID();
-    setTimeout(() => {
+    try {
+      await setUserEmail(this.state.email);
+      await setUserUUID();
       this.props.navigation.navigate('Signup_pin');
-    }, 500);
+    } catch (error) {
+      this.setState({ error: 'Somethig Went Wrong' })
+    }
+
   };
 
   isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -36,6 +40,13 @@ class Signup extends Component {
               <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
                 WELCOME
               </Text>
+              {
+                this.state.error.length
+                  ? <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
+                      WELCOME
+                    </Text>
+                  : ''
+              }
             </View>
             <View style={styles.email}>
               <TextInput
@@ -51,13 +62,13 @@ class Signup extends Component {
             </View>
 
             <View style={styles.buttonArea}>
-              {this.isEmail.test(this.state.email) ? (
+              {this.isEmail.test(this.state.email) && !this.state.error ? (
                 <TouchableOpacity onPress={this.handleSubmit}>
                   <Image source={require('../public/buttons/email_button.png')} />
                 </TouchableOpacity>
               ) : (
-                <Image source={require('../public/buttons/email_button_disabled.png')} />
-              )}
+                  <Image source={require('../public/buttons/email_button_disabled.png')} />
+                )}
             </View>
           </View>
         </TouchableWithoutFeedback>

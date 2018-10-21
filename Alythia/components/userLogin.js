@@ -38,7 +38,6 @@ class UserLogin extends Component {
   };
 
   handleMainInput = text => {
-    console.log('You typed', text);
     for (let i = 0; i < 6; i++) {
       if (text[i]) {
         this.setState({ ["pin" + (i + 1)]: text[i] });

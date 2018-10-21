@@ -13,6 +13,7 @@ export default class Loading extends React.Component {
   };
 
   componentDidMount = async () => {
+    console.log(process.env.NODE_ENV)
     const userStoredEmail = await store.getItemAsync("email");
     const pin = await store.getItemAsync("pin");
     this.setState({ email: userStoredEmail });

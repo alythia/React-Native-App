@@ -19,7 +19,8 @@ class EditEmail extends Component {
   state = {
     email: '',
     UUID: '',
-    modalVisible: false
+    modalVisible: false,
+    error: ''
   };
 
   async componentDidMount() {
@@ -33,19 +34,29 @@ class EditEmail extends Component {
   }
 
   handleSubmit = async () => {
-    const oldEmail = await store.getItemAsync('email');
+    try {
+      const oldEmail = await store.getItemAsync('email');
 
-    // const result = axios.put('http://alythia.herokuapp.com/api/users/', {UUID: this.state.UUID, email: this.state.email});
-    const result = axios.put('http://10.0.1.15:8080/api/users/', {UUID: this.state.UUID, oldEmail: oldEmail, newEmail: this.state.email});
+      // await axios.put('http://alythia.herokuapp.com/api/users/', {UUID: this.state.UUID, oldEmail, newEmail: this.state.email});
+      await axios.put('http://10.0.1.15:8080/api/users/',
+      {
+        UUID: this.state.UUID,
+        oldEmail: oldEmail,
+        newEmail: this.state.email
+      });
 
-    console.log('UPDATED EMAIL\n', result);
+      console.log('UPDATED EMAIL\n');
 
-    setUserEmail(this.state.email);
-    this.setModalVisible(true);
-    setTimeout(() => {
-      this.props.navigation.navigate('UsersPage');
-      this.setModalVisible(false);
-    }, 3000);
+      setUserEmail(this.state.email);
+      this.setModalVisible(true);
+      setTimeout(() => {
+        this.props.navigation.navigate('UsersPage');
+        this.setModalVisible(false);
+      }, 2500);
+    } catch (error) {
+      this.setState({ error: error.message });
+      setTimeout(() => { this.setState({ error: '' }) }, 5000)
+    }
   };
 
   isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -61,6 +72,11 @@ class EditEmail extends Component {
                 <Text h4 style={{ color: '#ecf0f1', fontWeight: '500' }}>
                   CHANGE YOUR EMAIL
                 </Text>
+                {
+                  this.state.error
+                    ? <Text h6 style={{ color: 'red', fontWeight: '500' }}>{this.state.error}</Text>
+                    : ''
+                }
               </View>
               <View style={styles.email}>
                 <TextInput
@@ -76,13 +92,13 @@ class EditEmail extends Component {
               </View>
 
               <View style={styles.buttonArea}>
-                {this.isEmail.test(this.state.email) ? (
-                  <TouchableOpacity onPress={this.handleSubmit}>
+                {this.isEmail.test(this.state.email)
+                  ?
+                  (<TouchableOpacity onPress={this.handleSubmit}>
                     <Image source={require('../../public/buttons/email_button.png')} />
-                  </TouchableOpacity>
-                ) : (
-                  <Image source={require('../../public/buttons/email_button_disabled.png')} />
-                )}
+                  </TouchableOpacity>)
+                  : (<Image source={require('../../public/buttons/email_button_disabled.png')} />)}
+
                 <Button title="Back" onPress={() => this.props.navigation.navigate('UsersPage')} />
               </View>
             </View>
